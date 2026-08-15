@@ -1,9 +1,25 @@
+import Navbar from "./components/layout/Navbar";
+
+import Hero from "./sections/Hero/Hero";
+import About from "./sections/About/About";
+import Skills from "./sections/Skills/Skills";
+import Experience from "./sections/Experience/Experience";
+import Projects from "./sections/Projects/Projects";
+import Contact from "./sections/Contact/Contact";
+
 function App() {
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center">
-      <h1 className="text-6xl font-bold">
-        Welcome, Yash 🚀
-      </h1>
+    <div className="min-h-screen overflow-x-hidden bg-zinc-950 text-white">
+      <Navbar />
+
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Contact />
+      </main>
     </div>
   );
 }
