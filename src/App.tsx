@@ -9,8 +9,19 @@ import Projects from "./sections/Projects/Projects";
 import Contact from "./sections/Contact/Contact";
 
 function App() {
+  const isMobileDesktopSite =
+    /Android/i.test(navigator.userAgent) &&
+    navigator.maxTouchPoints > 0 &&
+    window.matchMedia("(orientation: portrait)").matches &&
+    window.innerWidth > 600 &&
+    Math.min(window.screen.width, window.screen.height) <= 600;
+
   return (
-    <div className="min-h-screen overflow-x-hidden bg-zinc-950 text-white">
+    <div
+      className={`min-h-screen overflow-x-hidden bg-zinc-950 text-white ${
+        isMobileDesktopSite ? "mobile-desktop-site" : ""
+      }`}
+    >
       <Navbar />
 
       <main>
