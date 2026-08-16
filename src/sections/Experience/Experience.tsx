@@ -105,12 +105,70 @@ function ExperienceCard({
             : "border-zinc-800/80 hover:border-sky-500/40 hover:shadow-[0_20px_60px_-35px_rgba(14,165,233,0.35)]"
         }`}
       >
-        {/* Card glow */}
+        {/* =========================================
+            ALWAYS-ON RUNNING BORDER LIGHT
+        ========================================= */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
+          <motion.div
+            animate={{
+              x: ["-120%", "120%"],
+            }}
+            transition={{
+              duration: 4.5,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="absolute left-0 top-0 h-px w-1/3 bg-gradient-to-r from-transparent via-sky-400/90 to-transparent"
+          />
+
+          <motion.div
+            animate={{
+              x: ["120%", "-120%"],
+            }}
+            transition={{
+              duration: 5.5,
+              repeat: Infinity,
+              ease: "linear",
+              delay: 1.2,
+            }}
+            className="absolute bottom-0 right-0 h-px w-1/4 bg-gradient-to-r from-transparent via-violet-400/70 to-transparent"
+          />
+        </div>
+
+        {/* Subtle animated corner glow */}
+        <motion.div
+          animate={{
+            opacity: [0.15, 0.3, 0.15],
+            scale: [1, 1.08, 1],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-sky-500/10 blur-3xl"
+        />
+
+        <motion.div
+          animate={{
+            opacity: [0.08, 0.2, 0.08],
+            scale: [1, 1.06, 1],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+          className="pointer-events-none absolute -bottom-16 -left-16 h-36 w-36 rounded-full bg-violet-500/10 blur-3xl"
+        />
+
+        {/* Existing hover glow */}
         <div className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-sky-500/10 blur-3xl transition-all duration-500 group-hover:bg-sky-500/20" />
 
         <div className="pointer-events-none absolute -bottom-16 -left-16 h-36 w-36 rounded-full bg-violet-500/10 blur-3xl transition-all duration-500 group-hover:bg-violet-500/20" />
 
-        {/* Top line */}
+        {/* Hover top line */}
         <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-400 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
         <div className="relative z-10">
@@ -135,8 +193,10 @@ function ExperienceCard({
               <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-emerald-400">
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+
                   <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
                 </span>
+
                 Current
               </span>
             )}
@@ -299,12 +359,19 @@ function Experience() {
               </p>
             </div>
 
-            <div className="hidden items-center gap-2 text-xs text-zinc-600 lg:flex">
+            <div className="hidden items-center gap-2 text-xs font-semibold tracking-wide text-zinc-300 lg:flex">
               <Code2
                 size={14}
                 className="text-sky-400"
               />
-              Learn • Build • Lead
+
+              <span>
+                Learn{" "}
+                <span className="text-zinc-500">•</span>{" "}
+                Build{" "}
+                <span className="text-zinc-500">•</span>{" "}
+                Lead
+              </span>
             </div>
           </div>
         </motion.div>

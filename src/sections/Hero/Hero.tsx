@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
-  ArrowDown,
   ArrowUpRight,
   Mail,
   Sparkles,
@@ -12,7 +11,6 @@ import yashPhoto from "../../assets/images/yashphoto.jpg";
 const roles = [
   "I'm Yash.",
   "I'm a Developer.",
-  "I'm a Builder.",
   "I'm a Learner.",
 ];
 
@@ -49,6 +47,7 @@ function Hero() {
 
         if (nextText === "") {
           setIsDeleting(false);
+
           setRoleIndex(
             (previous) => (previous + 1) % roles.length
           );
@@ -77,22 +76,15 @@ function Hero() {
     });
   };
 
-  const scrollToAbout = () => {
-    const about = document.getElementById("about");
-
-    if (!about) return;
-
-    about.scrollIntoView({
-      behavior: "smooth",
-    });
-  };
-
   return (
     <section
       id="home"
       className="relative flex min-h-screen items-center overflow-hidden bg-zinc-950 px-6 pb-20 pt-32 sm:px-8 lg:px-12"
     >
-      {/* Background glow */}
+      {/* =====================================================
+          BACKGROUND GLOW
+      ====================================================== */}
+
       <motion.div
         animate={{
           x: [0, 35, 0],
@@ -151,10 +143,17 @@ function Hero() {
         className="pointer-events-none absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 origin-left bg-gradient-to-r from-transparent via-sky-400/60 to-transparent"
       />
 
+      {/* =====================================================
+          MAIN CONTENT
+      ====================================================== */}
+
       <div className="relative z-10 mx-auto w-full max-w-6xl">
         <div className="grid items-center gap-12 lg:grid-cols-[0.8fr_1.5fr] lg:gap-16">
-          
-          {/* ================= PHOTO ================= */}
+
+          {/* =================================================
+              PHOTO
+          ================================================== */}
+
           <motion.div
             initial={{
               opacity: 0,
@@ -173,6 +172,7 @@ function Hero() {
             className="order-1 flex justify-center lg:justify-start"
           >
             <div className="relative">
+
               {/* Outer glow */}
               <motion.div
                 animate={{
@@ -217,7 +217,6 @@ function Hero() {
                   transformPerspective: 1000,
                 }}
               >
-                {/* Photo */}
                 <img
                   src={yashPhoto}
                   alt="Yash Birari"
@@ -246,8 +245,12 @@ function Hero() {
             </div>
           </motion.div>
 
-          {/* ================= CONTENT ================= */}
+          {/* =================================================
+              CONTENT
+          ================================================== */}
+
           <div className="order-2 max-w-4xl">
+
             {/* Intro */}
             <motion.div
               initial={{
@@ -276,7 +279,11 @@ function Hero() {
               />
             </motion.div>
 
-            {/* Typewriter */}
+            {/* =================================================
+                TYPEWRITER
+                Removed: "I'm a Builder."
+            ================================================== */}
+
             <div className="min-h-[80px] sm:min-h-[100px] lg:min-h-[120px]">
               <motion.h1
                 initial={{
@@ -351,7 +358,10 @@ function Hero() {
               turning ideas into real-world projects.
             </motion.p>
 
-            {/* Buttons */}
+            {/* =================================================
+                BUTTONS
+            ================================================== */}
+
             <motion.div
               initial={{
                 opacity: 0,
@@ -392,7 +402,10 @@ function Hero() {
               </a>
             </motion.div>
 
-            {/* Social links */}
+            {/* =================================================
+                SOCIAL LINKS
+            ================================================== */}
+
             <motion.div
               initial={{
                 opacity: 0,
@@ -406,68 +419,50 @@ function Hero() {
                 duration: 0.7,
                 delay: 0.8,
               }}
-              className="mt-9 flex items-center gap-3"
+              className="mt-5 flex items-center gap-3"
             >
-              <span className="mr-2 text-xs uppercase tracking-[0.16em] text-zinc-600">
+              <span className="mr-2 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-300">
                 Find me
               </span>
 
+              {/* GitHub */}
               <a
                 href="https://github.com/Yashbirari2006"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub profile"
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900/70 text-xs font-bold text-zinc-400 transition-all duration-300 hover:-translate-y-1 hover:border-sky-500/40 hover:bg-sky-500/5 hover:text-white"
+                className="group flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-700 bg-zinc-900/80 text-zinc-300 transition-all duration-300 hover:-translate-y-1 hover:border-sky-500/50 hover:bg-sky-500/10 hover:text-white hover:shadow-[0_8px_25px_-10px_rgba(56,189,248,0.7)]"
               >
-                GH
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="h-[19px] w-[19px] transition-transform duration-300 group-hover:scale-110"
+                  aria-hidden="true"
+                >
+                  <path d="M12 2C6.477 2 2 6.486 2 12.021c0 4.428 2.865 8.185 6.839 9.504.5.092.682-.218.682-.483 0-.237-.009-1.026-.014-1.861-2.782.606-3.369-1.183-3.369-1.183-.455-1.157-1.11-1.465-1.11-1.465-.908-.622.069-.61.069-.61 1.004.071 1.532 1.033 1.532 1.033.892 1.531 2.341 1.089 2.912.833.091-.647.35-1.089.636-1.339-2.22-.253-4.555-1.114-4.555-4.956 0-1.094.39-1.989 1.029-2.69-.103-.253-.446-1.273.098-2.65 0 0 .84-.27 2.75 1.026A9.52 9.52 0 0 1 12 6.846a9.5 9.5 0 0 1 2.5.337c1.91-1.296 2.748-1.026 2.748-1.026.546 1.377.202 2.397.1 2.65.64.701 1.028 1.596 1.028 2.69 0 3.851-2.339 4.7-4.566 4.948.359.31.678.921.678 1.856 0 1.34-.012 2.421-.012 2.75 0 .267.18.579.688.481A10.024 10.024 0 0 0 22 12.021C22 6.486 17.523 2 12 2Z" />
+                </svg>
               </a>
 
+              {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/in/yashbirari2006/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn profile"
-                className="flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900/70 text-xs font-bold text-zinc-400 transition-all duration-300 hover:-translate-y-1 hover:border-sky-500/40 hover:bg-sky-500/5 hover:text-sky-300"
+                className="group flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-700 bg-zinc-900/80 text-zinc-300 transition-all duration-300 hover:-translate-y-1 hover:border-sky-500/50 hover:bg-sky-500/10 hover:text-sky-300 hover:shadow-[0_8px_25px_-10px_rgba(56,189,248,0.7)]"
               >
-                in
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="h-[19px] w-[19px] transition-transform duration-300 group-hover:scale-110"
+                  aria-hidden="true"
+                >
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V8.998h3.414v1.561h.046c.476-.9 1.637-1.85 3.37-1.85 3.602 0 4.267 2.37 4.267 5.455v6.288ZM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124ZM3.56 20.452h3.558V8.998H3.56v11.454Z" />
+                </svg>
               </a>
             </motion.div>
           </div>
         </div>
-
-        {/* Scroll indicator */}
-        <motion.button
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
-            opacity: 1,
-          }}
-          transition={{
-            duration: 1,
-            delay: 1.2,
-          }}
-          onClick={scrollToAbout}
-          className="absolute bottom-[-30px] left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-zinc-600 transition-colors duration-300 hover:text-sky-400 sm:flex"
-          aria-label="Scroll to About section"
-        >
-          <span className="text-[9px] font-medium uppercase tracking-[0.25em]">
-            Scroll
-          </span>
-
-          <motion.div
-            animate={{
-              y: [0, 5, 0],
-            }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            <ArrowDown size={15} />
-          </motion.div>
-        </motion.button>
       </div>
 
       {/* Bottom fade */}

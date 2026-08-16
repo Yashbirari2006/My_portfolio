@@ -639,40 +639,28 @@ function Skills() {
         </motion.div>
 
         {/* Bottom statement */}
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 0.6,
-          }}
-          className="mt-10 flex flex-col gap-4 border-t border-zinc-800 pt-7 sm:flex-row sm:items-center sm:justify-between"
-        >
-          <div className="flex items-center gap-3 text-sm text-zinc-500">
-            <Code2
-              size={16}
-              className="text-sky-400"
-            />
+        
+<motion.div
+  initial={{ opacity: 0, y: 15 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.7 }}
+  className="mt-12 flex flex-col items-center justify-center text-center"
+>
+  <p className="text-sm font-medium tracking-wide text-zinc-300 sm:text-base">
+    Learning continuously. Building consistently.
+  </p>
 
-            <span>
-              Learning continuously. Building consistently.
-            </span>
-          </div>
+  <p className="mt-2 bg-gradient-to-r from-sky-400 via-cyan-300 to-violet-400 bg-clip-text text-lg font-semibold tracking-tight text-transparent sm:text-xl">
+    Growing every day
+  </p>
 
-          <div className="flex items-center gap-2 text-xs text-zinc-600">
-            <span className="h-1.5 w-1.5 rounded-full bg-sky-400 shadow-[0_0_10px_rgba(56,189,248,0.8)]" />
-
-            Growing every day
-          </div>
-        </motion.div>
+  <div className="mt-4 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">
+    <span className="h-px w-8 bg-sky-500/50" />
+    <span>Learn • Build • Lead</span>
+    <span className="h-px w-8 bg-violet-500/50" />
+  </div>
+</motion.div>
       </div>
     </section>
   );

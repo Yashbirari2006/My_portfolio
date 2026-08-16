@@ -507,42 +507,79 @@ function Projects() {
         </div>
 
         {/* GitHub Profile */}
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 0.5,
-            delay: 0.2,
-          }}
-          className="mt-8 flex justify-center"
-        >
-          <a
-            href="https://github.com/Yashbirari2006"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group/github inline-flex items-center gap-2.5 rounded-xl border border-zinc-800 bg-zinc-900/70 px-5 py-3 text-sm font-medium text-zinc-400 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-sky-500/40 hover:bg-sky-500/5 hover:text-sky-300"
-          >
-            <span className="transition-transform duration-300 group-hover/github:rotate-12">
-              <GitHubLogo />
-            </span>
+<motion.div
+  initial={{
+    opacity: 0,
+    y: 20,
+  }}
+  whileInView={{
+    opacity: 1,
+    y: 0,
+  }}
+  viewport={{
+    once: true,
+  }}
+  transition={{
+    duration: 0.5,
+    delay: 0.2,
+  }}
+  className="mt-8 flex justify-center"
+>
+  <motion.a
+    href="https://github.com/Yashbirari2006"
+    target="_blank"
+    rel="noopener noreferrer"
+    whileHover={{
+      y: -2,
+    }}
+    whileTap={{
+      scale: 0.98,
+    }}
+    className="group/github relative inline-flex items-center gap-2.5 rounded-xl bg-zinc-950 px-5 py-3 text-sm font-medium text-zinc-300"
+  >
+    {/* Animated Border */}
+    <span
+      className="pointer-events-none absolute -inset-px overflow-hidden rounded-xl"
+      aria-hidden="true"
+    >
+      <motion.span
+        animate={{
+          backgroundPosition: [
+            "0% 50%",
+            "100% 50%",
+            "0% 50%",
+          ],
+        }}
+        transition={{
+          duration: 3.5,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        className="absolute inset-0 rounded-xl bg-[linear-gradient(90deg,transparent_0%,transparent_35%,rgba(56,189,248,0.9)_50%,rgba(139,92,246,0.9)_55%,transparent_70%,transparent_100%)] bg-[length:250%_100%]"
+      />
+    </span>
 
-            <span>View more on GitHub</span>
+    {/* Inner Background */}
+    <span className="absolute inset-[1px] rounded-[11px] bg-zinc-950" />
 
-            <ArrowUpRight
-              size={15}
-              className="transition-transform duration-300 group-hover/github:-translate-y-0.5 group-hover/github:translate-x-0.5"
-            />
-          </a>
-        </motion.div>
+    {/* Content */}
+    <span className="relative z-10 flex items-center gap-2.5">
+      {/* GitHub Icon */}
+      <span className="transition-all duration-300 group-hover/github:scale-110 group-hover/github:text-sky-400">
+        <GitHubLogo />
+      </span>
+
+      {/* Text */}
+      <span>View more on GitHub</span>
+
+      {/* Arrow */}
+      <ArrowUpRight
+        size={15}
+        className="text-zinc-500 transition-all duration-300 group-hover/github:-translate-y-0.5 group-hover/github:translate-x-0.5 group-hover/github:text-sky-400"
+      />
+    </span>
+  </motion.a>
+</motion.div>
       </div>
     </section>
   );

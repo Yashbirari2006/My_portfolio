@@ -20,20 +20,17 @@ type Opportunity = {
 const opportunities: Opportunity[] = [
   {
     title: "Software Developer",
-    description:
-      "Building practical and scalable software solutions.",
+    description: "Building practical and scalable software solutions.",
     icon: Code2,
   },
   {
     title: "Full-Stack Developer",
-    description:
-      "Frontend, backend, APIs and complete web experiences.",
+    description: "Frontend, backend, APIs and complete web experiences.",
     icon: Layers3,
   },
   {
     title: "AI & Emerging Tech",
-    description:
-      "Exploring AI and modern technologies through projects.",
+    description: "Exploring AI and modern technologies through projects.",
     icon: Bot,
   },
   {
@@ -43,6 +40,76 @@ const opportunities: Opportunity[] = [
     icon: BriefcaseBusiness,
   },
 ];
+
+/* =========================================================
+   SLOW RUNNING BORDER
+========================================================= */
+
+function RunningBorder() {
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
+      <motion.div
+        className="absolute h-[2px] w-24 bg-gradient-to-r from-transparent via-sky-400 to-transparent"
+        animate={{
+          left: ["-25%", "125%"],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        style={{
+          top: 0,
+        }}
+      />
+
+      <motion.div
+        className="absolute h-[2px] w-24 bg-gradient-to-r from-transparent via-sky-400 to-transparent"
+        animate={{
+          right: ["-25%", "125%"],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        style={{
+          bottom: 0,
+        }}
+      />
+
+      <motion.div
+        className="absolute h-24 w-[2px] bg-gradient-to-b from-transparent via-sky-400 to-transparent"
+        animate={{
+          top: ["-25%", "125%"],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        style={{
+          right: 0,
+        }}
+      />
+
+      <motion.div
+        className="absolute h-24 w-[2px] bg-gradient-to-t from-transparent via-sky-400 to-transparent"
+        animate={{
+          bottom: ["-25%", "125%"],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        style={{
+          left: 0,
+        }}
+      />
+    </div>
+  );
+}
 
 function Contact() {
   const mouseX = useMotionValue(0);
@@ -77,7 +144,6 @@ function Contact() {
           BACKGROUND EFFECTS
       ====================================================== */}
 
-      {/* Cursor-following spotlight */}
       <motion.div
         className="pointer-events-none absolute h-96 w-96 rounded-full bg-sky-500/10 blur-[130px]"
         style={{
@@ -88,7 +154,6 @@ function Contact() {
         }}
       />
 
-      {/* Animated glow */}
       <motion.div
         animate={{
           x: [0, 30, 0],
@@ -228,7 +293,7 @@ function Contact() {
                 <Mail size={21} />
               </motion.div>
 
-              <p className="mt-7 text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-600">
+              <p className="mt-7 text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-400">
                 Best way to reach me
               </p>
 
@@ -249,15 +314,15 @@ function Contact() {
               <div className="mt-8 flex items-center gap-3">
                 <MapPin
                   size={17}
-                  className="text-sky-400"
+                  className="shrink-0 text-sky-400"
                 />
 
                 <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-zinc-600">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-zinc-400">
                     Based in
                   </p>
 
-                  <p className="mt-1 text-sm text-zinc-400">
+                  <p className="mt-1 text-sm text-zinc-300">
                     Maharashtra, India
                   </p>
                 </div>
@@ -285,7 +350,7 @@ function Contact() {
               <div className="my-8 h-px bg-zinc-800" />
 
               {/* Social heading */}
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-600">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-400">
                 Find me online
               </p>
 
@@ -305,17 +370,23 @@ function Contact() {
                 >
                   <div className="flex items-center gap-3">
 
-                    {/* GitHub badge - no Github icon import */}
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-900 text-[11px] font-bold tracking-tight text-zinc-300 transition-colors group-hover/social:text-sky-300">
-                      GH
+                    {/* GitHub Logo */}
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 text-zinc-200 transition-all duration-300 group-hover/social:border-sky-500/30 group-hover/social:text-sky-300">
+                      <svg
+                        viewBox="0 0 24 24"
+                        className="h-5 w-5 fill-current"
+                        aria-hidden="true"
+                      >
+                        <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.38 7.86 10.9.58.1.79-.25.79-.56v-2.17c-3.2.7-3.88-1.36-3.88-1.36-.53-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.25 3.33.96.1-.74.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.11 3.06.73.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.07.78 2.16v3.2c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
+                      </svg>
                     </div>
 
                     <div>
-                      <p className="text-xs font-semibold text-zinc-300">
+                      <p className="text-xs font-semibold text-zinc-200">
                         GitHub
                       </p>
 
-                      <p className="text-[10px] text-zinc-600">
+                      <p className="text-[10px] text-zinc-500">
                         Explore my projects
                       </p>
                     </div>
@@ -323,7 +394,7 @@ function Contact() {
 
                   <ArrowUpRight
                     size={14}
-                    className="text-zinc-700 transition-all duration-300 group-hover/social:-translate-y-0.5 group-hover/social:translate-x-0.5 group-hover/social:text-sky-400"
+                    className="text-zinc-600 transition-all duration-300 group-hover/social:-translate-y-0.5 group-hover/social:translate-x-0.5 group-hover/social:text-sky-400"
                   />
                 </a>
 
@@ -340,17 +411,23 @@ function Contact() {
                 >
                   <div className="flex items-center gap-3">
 
-                    {/* LinkedIn badge - no icon import */}
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-900 text-sm font-bold text-zinc-300 transition-colors group-hover/social:text-sky-300">
-                      in
+                    {/* LinkedIn Logo */}
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 text-zinc-200 transition-all duration-300 group-hover/social:border-sky-500/30 group-hover/social:text-sky-300">
+                      <svg
+                        viewBox="0 0 24 24"
+                        className="h-[18px] w-[18px] fill-current"
+                        aria-hidden="true"
+                      >
+                        <path d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.68H9.35V8.99h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM3.56 20.45h3.56V8.99H3.56v11.46ZM22.22 0H1.78C.8 0 0 .8 0 1.78v20.44C0 23.2.8 24 1.78 24h20.44c.98 0 1.78-.8 1.78-1.78V1.78C24 .8 23.2 0 22.22 0Z" />
+                      </svg>
                     </div>
 
                     <div>
-                      <p className="text-xs font-semibold text-zinc-300">
+                      <p className="text-xs font-semibold text-zinc-200">
                         LinkedIn
                       </p>
 
-                      <p className="text-[10px] text-zinc-600">
+                      <p className="text-[10px] text-zinc-500">
                         Connect professionally
                       </p>
                     </div>
@@ -358,10 +435,9 @@ function Contact() {
 
                   <ArrowUpRight
                     size={14}
-                    className="text-zinc-700 transition-all duration-300 group-hover/social:-translate-y-0.5 group-hover/social:translate-x-0.5 group-hover/social:text-sky-400"
+                    className="text-zinc-600 transition-all duration-300 group-hover/social:-translate-y-0.5 group-hover/social:translate-x-0.5 group-hover/social:text-sky-400"
                   />
                 </a>
-
               </div>
             </div>
           </motion.div>
@@ -391,6 +467,7 @@ function Contact() {
           >
 
             {/* Header */}
+
             <div className="flex items-start justify-between gap-5">
 
               <div>
@@ -402,13 +479,14 @@ function Contact() {
                   What I&apos;m open to
                 </h3>
 
-                <p className="mt-2 max-w-xl text-sm leading-6 text-zinc-500">
+                <p className="mt-2 max-w-xl text-sm leading-6 text-zinc-400">
                   Interested in opportunities where I can contribute,
                   learn, and build meaningful products.
                 </p>
               </div>
 
               {/* Open badge */}
+
               <div className="hidden shrink-0 items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1.5 sm:flex">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
@@ -422,83 +500,86 @@ function Contact() {
               </div>
             </div>
 
-            {/* Opportunity cards */}
+            {/* Opportunity Cards */}
+
             <div className="mt-7 grid gap-3 sm:grid-cols-2">
 
-              {opportunities.map(
-                (opportunity, index) => {
-                  const Icon = opportunity.icon;
+              {opportunities.map((opportunity, index) => {
+                const Icon = opportunity.icon;
 
-                  return (
-                    <motion.div
-                      key={opportunity.title}
-                      initial={{
-                        opacity: 0,
-                        y: 15,
-                      }}
-                      whileInView={{
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      viewport={{
-                        once: true,
-                      }}
-                      transition={{
-                        duration: 0.4,
-                        delay:
-                          0.15 + index * 0.08,
-                      }}
-                      whileHover={{
-                        y: -4,
-                      }}
-                      className="group/role relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/60 p-4 transition-all duration-300 hover:border-sky-500/30 hover:bg-zinc-950"
-                    >
-                      {/* Hover glow */}
-                      <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-sky-500/0 blur-2xl transition-all duration-500 group-hover/role:bg-sky-500/10" />
+                return (
+                  <motion.div
+                    key={opportunity.title}
+                    initial={{
+                      opacity: 0,
+                      y: 15,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    viewport={{
+                      once: true,
+                    }}
+                    transition={{
+                      duration: 0.4,
+                      delay: 0.15 + index * 0.08,
+                    }}
+                    whileHover={{
+                      y: -4,
+                    }}
+                    className="group/role relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/70 p-4 transition-all duration-300 hover:bg-zinc-950"
+                  >
+                    {/* Slow running border */}
 
-                      <div className="relative z-10">
+                    <RunningBorder />
 
-                        <div className="flex items-center justify-between">
+                    {/* Hover glow */}
 
-                          <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 text-sky-400 transition-all duration-300 group-hover/role:border-sky-500/30 group-hover/role:bg-sky-500/10">
-                            <Icon size={17} />
-                          </div>
+                    <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-sky-500/0 blur-2xl transition-all duration-500 group-hover/role:bg-sky-500/10" />
 
-                          <ArrowUpRight
-                            size={14}
-                            className="text-zinc-700 transition-all duration-300 group-hover/role:-translate-y-0.5 group-hover/role:translate-x-0.5 group-hover/role:text-sky-400"
-                          />
+                    <div className="relative z-10">
+
+                      <div className="flex items-center justify-between">
+
+                        <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 text-sky-400 transition-all duration-300 group-hover/role:border-sky-500/30 group-hover/role:bg-sky-500/10">
+                          <Icon size={17} />
                         </div>
 
-                        <h4 className="mt-4 text-sm font-semibold text-zinc-200 transition-colors group-hover/role:text-sky-300">
-                          {opportunity.title}
-                        </h4>
-
-                        <p className="mt-1.5 text-xs leading-5 text-zinc-600">
-                          {opportunity.description}
-                        </p>
+                        <ArrowUpRight
+                          size={14}
+                          className="text-zinc-600 transition-all duration-300 group-hover/role:-translate-y-0.5 group-hover/role:translate-x-0.5 group-hover/role:text-sky-400"
+                        />
                       </div>
-                    </motion.div>
-                  );
-                }
-              )}
 
+                      <h4 className="mt-4 text-sm font-semibold text-zinc-200 transition-colors group-hover/role:text-sky-300">
+                        {opportunity.title}
+                      </h4>
+
+                      <p className="mt-1.5 text-xs leading-5 text-zinc-500">
+                        {opportunity.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
 
             {/* Availability */}
+
             <div className="mt-7 flex items-center gap-3 border-t border-zinc-800 pt-6">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-full border border-emerald-500/20 bg-emerald-500/10">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-emerald-500/20 bg-emerald-500/10">
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]" />
               </div>
 
-              <div>
+              <div className="min-w-0">
                 <p className="text-xs font-medium text-zinc-300">
                   Currently open to opportunities
                 </p>
 
-                <p className="mt-1 text-[10px] text-zinc-600">
-                  Software Developer • Full-Stack • AI & Tech Roles
+                <p className="mt-1 text-[11px] leading-5 text-zinc-400">
+                  Software Developer • Full-Stack • AI &amp; Tech Roles
                 </p>
               </div>
             </div>
@@ -529,7 +610,7 @@ function Contact() {
         >
           <div className="flex items-center gap-3">
 
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-900 text-sky-400">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 text-sky-400">
               <FileText size={17} />
             </div>
 
@@ -538,7 +619,7 @@ function Contact() {
                 Want to know more about my work?
               </p>
 
-              <p className="mt-1 text-[10px] text-zinc-600">
+              <p className="mt-1 text-[10px] text-zinc-500">
                 Take a look at my resume and technical journey.
               </p>
             </div>
@@ -578,7 +659,7 @@ function Contact() {
           }}
           className="mt-10 flex flex-col gap-3 border-t border-zinc-800 pt-6 sm:flex-row sm:items-center sm:justify-between"
         >
-          <div className="flex items-center gap-2 text-xs text-zinc-600">
+          <div className="flex items-center gap-2 text-xs text-zinc-500">
             <Sparkles
               size={13}
               className="text-sky-400"
@@ -589,7 +670,7 @@ function Contact() {
             </span>
           </div>
 
-          <p className="text-xs text-zinc-700">
+          <p className="text-xs text-zinc-600">
             © {new Date().getFullYear()} Yash Birari
           </p>
         </motion.div>

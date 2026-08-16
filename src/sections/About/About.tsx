@@ -16,15 +16,13 @@ const stats = [
   },
   {
     value: "Full-Stack Developer",
-   
+    label: "Development Focus",
     icon: Code2,
   },
-  
-   {
-  value: "Founding Team Member & Technical Team Co-Lead",
-  label: "at Apex Coding & Development Club",
-  icon: Users,
-
+  {
+    value: "Founding Team Member & Technical Team Co-Lead",
+    label: "at Apex Coding & Development Club",
+    icon: Users,
   },
 ];
 
@@ -120,7 +118,14 @@ function About() {
                 </p>
 
                 <p>
-                  My primary focus is on full-stack development, where I enjoy building practical and user-focused applications. I work with technologies such as Java, Python, React, and JavaScript, while continuously exploring AI and cloud technologies to expand my development capabilities. I enjoy turning ideas into working solutions and applying what I learn through personal projects, hackathons, and hands-on development experiences.
+                  My primary focus is on full-stack development, where I enjoy
+                  building practical and user-focused applications. I work
+                  with technologies such as Java, Python, React, and
+                  JavaScript, while continuously exploring AI and cloud
+                  technologies to expand my development capabilities. I enjoy
+                  turning ideas into working solutions and applying what I
+                  learn through personal projects, hackathons, and hands-on
+                  development experiences.
                 </p>
 
                 <p>
@@ -160,7 +165,7 @@ function About() {
 
               return (
                 <motion.div
-                  key={stat.label}
+                  key={`${stat.value}-${index}`}
                   initial={{ opacity: 0, x: 25 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
@@ -211,6 +216,7 @@ function About() {
           className="mt-10 flex items-center gap-3 text-sm text-zinc-500 dark:text-zinc-400"
         >
           <Cloud size={16} className="text-sky-500" />
+
           <span>Learning continuously. Building consistently.</span>
         </motion.div>
       </div>

@@ -100,19 +100,59 @@ function Navbar() {
             : "bg-transparent"
         }`}
       >
-        {/* Logo */}
+        {/* =====================================================
+            LOGO
+        ====================================================== */}
+
         <button
           onClick={() => handleNavigation("#home")}
-          className="group text-xl font-semibold tracking-tight text-white transition-transform duration-200 active:scale-95"
+          className="group relative cursor-pointer text-2xl font-semibold tracking-[-0.04em] text-white transition-transform duration-200 active:scale-95"
           aria-label="Go to home"
         >
-          Yash
-          <span className="text-sky-400 transition-colors duration-300 group-hover:text-cyan-300">
+          <span className="relative inline-block">
+            YASH
+
+            {/* Animated line */}
+            <motion.span
+              initial={{
+                scaleX: 0,
+              }}
+              animate={{
+                scaleX: 1,
+              }}
+              transition={{
+                duration: 0.8,
+                delay: 0.2,
+                ease: "easeOut",
+              }}
+              className="absolute -bottom-1 left-0 h-[2px] w-full origin-left rounded-full bg-gradient-to-r from-white via-zinc-300 to-transparent"
+            />
+
+            {/* Moving highlight */}
+            <motion.span
+              animate={{
+                x: ["0%", "100%", "0%"],
+                opacity: [0, 1, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+                repeatDelay: 1.5,
+              }}
+              className="absolute -bottom-1 left-0 h-[2px] w-1/3 rounded-full bg-white blur-[1px]"
+            />
+          </span>
+
+          <span className="text-zinc-400 transition-colors duration-300 group-hover:text-white">
             .
           </span>
         </button>
 
-        {/* Desktop Navigation */}
+        {/* =====================================================
+            DESKTOP NAVIGATION
+        ====================================================== */}
+
         <div className="hidden items-center gap-1 md:flex">
           {navItems.map((item) => {
             const isActive =
@@ -122,12 +162,13 @@ function Navbar() {
               <button
                 key={item.name}
                 onClick={() => handleNavigation(item.href)}
-                className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 active:scale-95 ${
+                className={`relative cursor-pointer rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 active:scale-95 ${
                   isActive
                     ? "text-zinc-950"
                     : "text-zinc-400 hover:text-white"
                 }`}
               >
+                {/* White active background */}
                 {isActive && (
                   <motion.span
                     layoutId="active-navbar-pill"
@@ -149,10 +190,13 @@ function Navbar() {
           })}
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* =====================================================
+            MOBILE MENU BUTTON
+        ====================================================== */}
+
         <button
           onClick={() => setIsOpen((previous) => !previous)}
-          className="rounded-full border border-zinc-800 bg-zinc-900/70 p-2 text-zinc-300 transition-all duration-200 hover:border-zinc-700 hover:bg-zinc-800 hover:text-white active:scale-90 md:hidden"
+          className="cursor-pointer rounded-full border border-zinc-800 bg-zinc-900/70 p-2 text-zinc-300 transition-all duration-200 hover:border-zinc-700 hover:bg-zinc-800 hover:text-white active:scale-90 md:hidden"
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
         >
@@ -160,7 +204,10 @@ function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Navigation */}
+      {/* =====================================================
+          MOBILE NAVIGATION
+      ====================================================== */}
+
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -194,12 +241,13 @@ function Navbar() {
                   <button
                     key={item.name}
                     onClick={() => handleNavigation(item.href)}
-                    className={`relative rounded-xl px-4 py-3 text-left text-sm font-medium transition-colors duration-200 active:scale-[0.98] ${
+                    className={`relative cursor-pointer rounded-xl px-4 py-3 text-left text-sm font-medium transition-colors duration-200 active:scale-[0.98] ${
                       isActive
                         ? "text-zinc-950"
                         : "text-zinc-400 hover:text-white"
                     }`}
                   >
+                    {/* White active background */}
                     {isActive && (
                       <motion.span
                         layoutId="mobile-active-navbar-pill"
