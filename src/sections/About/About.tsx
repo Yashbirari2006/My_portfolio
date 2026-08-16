@@ -30,7 +30,7 @@ function About() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-white px-6 py-28 dark:bg-zinc-950 sm:py-36 lg:px-8"
+      className="relative overflow-hidden bg-zinc-950 px-6 py-28 sm:py-36 lg:px-8"
     >
       {/* Background Glow */}
       <div className="pointer-events-none absolute left-1/3 top-20 -z-0 h-80 w-80 rounded-full bg-sky-400/10 blur-[120px]" />
@@ -53,7 +53,7 @@ function About() {
             </p>
           </div>
 
-          <h2 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-zinc-950 dark:text-white sm:text-5xl lg:text-6xl">
+          <h2 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
             Building practical solutions.
             <br />
             <span className="text-zinc-400">
@@ -61,7 +61,7 @@ function About() {
             </span>
           </h2>
 
-          <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-600 dark:text-zinc-400 sm:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg">
             A developer who enjoys turning ideas into useful products while
             continuously learning and growing.
           </p>
@@ -76,7 +76,7 @@ function About() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7 }}
             whileHover={{ y: -4 }}
-            className="group relative overflow-hidden rounded-[2rem] border border-zinc-200 bg-zinc-50/80 p-8 shadow-sm transition-all duration-300 hover:border-sky-300/70 hover:shadow-[0_20px_70px_-30px_rgba(14,165,233,0.4)] dark:border-zinc-800 dark:bg-zinc-900/50 dark:hover:border-sky-500/30 sm:p-10"
+            className="group relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-900/50 p-8 shadow-sm transition-all duration-300 hover:border-sky-500/30 hover:shadow-[0_20px_70px_-30px_rgba(14,165,233,0.4)] sm:p-10"
           >
             {/* Hover Glow */}
             <div className="pointer-events-none absolute -right-24 -top-24 h-56 w-56 rounded-full bg-sky-400/10 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -85,12 +85,12 @@ function About() {
               {/* Card Header */}
               <div className="flex items-start justify-between gap-5">
                 <div>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-3 py-1.5 text-xs font-medium text-sky-600 dark:border-sky-900/50 dark:bg-sky-950/40 dark:text-sky-400">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-sky-900/50 bg-sky-950/40 px-3 py-1.5 text-xs font-medium text-sky-400">
                     <span className="h-1.5 w-1.5 rounded-full bg-sky-500" />
                     B.Tech in Information Technology
                   </span>
 
-                  <h3 className="mt-6 text-2xl font-semibold tracking-tight text-zinc-950 dark:text-white sm:text-3xl">
+                  <h3 className="mt-6 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
                     Hi, I&apos;m Yash Birari.
                   </h3>
                 </div>
@@ -100,14 +100,14 @@ function About() {
                     rotate: 8,
                     scale: 1.05,
                   }}
-                  className="hidden rounded-2xl border border-zinc-200 bg-white p-3 shadow-sm dark:border-zinc-700 dark:bg-zinc-900 sm:block"
+                  className="hidden rounded-2xl border border-zinc-700 bg-zinc-900 p-3 shadow-sm sm:block"
                 >
                   <Sparkles size={21} className="text-sky-500" />
                 </motion.div>
               </div>
 
               {/* About Text */}
-              <div className="mt-7 space-y-5 text-base leading-7 text-zinc-600 dark:text-zinc-400 sm:text-lg">
+              <div className="mt-7 space-y-5 text-base leading-7 text-zinc-400 sm:text-lg">
                 <p>
                   I&apos;m Yash Birari, a third-year Information Technology
                   student at SVKM Institute of Technology, Dhule, with a
@@ -130,7 +130,7 @@ function About() {
 
                 <p>
                   Beyond development, I&apos;m a{" "}
-                  <span className="font-semibold text-zinc-950 dark:text-white">
+                  <span className="font-semibold text-white">
                     Founding Team Member &amp; Technical Team Co-Lead at Apex
                     Coding &amp; Development Club
                   </span>
@@ -147,11 +147,11 @@ function About() {
                 href="#projects"
                 whileHover={{ x: 4 }}
                 whileTap={{ scale: 0.98 }}
-                className="mt-9 inline-flex items-center gap-2 text-sm font-semibold text-zinc-950 dark:text-white"
+                className="mt-9 inline-flex items-center gap-2 text-sm font-semibold text-white"
               >
                 Explore my work
 
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-zinc-900 text-white transition-colors duration-200 group-hover:bg-sky-500 dark:bg-white dark:text-zinc-950 dark:group-hover:bg-sky-500 dark:group-hover:text-white">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-zinc-950 transition-colors duration-200 group-hover:bg-sky-500 group-hover:text-white">
                   <ArrowUpRight size={15} />
                 </span>
               </motion.a>
@@ -177,13 +177,13 @@ function About() {
                     y: -5,
                     scale: 1.01,
                   }}
-                  className="group relative overflow-hidden rounded-[1.7rem] border border-zinc-200 bg-white p-6 shadow-sm transition-all duration-300 hover:border-sky-300/70 hover:shadow-[0_18px_60px_-30px_rgba(14,165,233,0.45)] dark:border-zinc-800 dark:bg-zinc-900/60 dark:hover:border-sky-500/30"
+                  className="group relative overflow-hidden rounded-[1.7rem] border border-zinc-800 bg-zinc-900/60 p-6 shadow-sm transition-all duration-300 hover:border-sky-500/30 hover:shadow-[0_18px_60px_-30px_rgba(14,165,233,0.45)]"
                 >
                   {/* Hover Glow */}
                   <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-sky-400/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                   <div className="relative flex items-center justify-between">
-                    <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-700 dark:bg-zinc-800">
+                    <div className="rounded-xl border border-zinc-700 bg-zinc-800 p-3">
                       <Icon size={20} className="text-sky-500" />
                     </div>
 
@@ -193,11 +193,11 @@ function About() {
                   </div>
 
                   <div className="relative mt-7">
-                    <p className="text-2xl font-semibold tracking-tight text-zinc-950 dark:text-white">
+                    <p className="text-2xl font-semibold tracking-tight text-white">
                       {stat.value}
                     </p>
 
-                    <p className="mt-2 text-sm leading-5 text-zinc-500 dark:text-zinc-400">
+                    <p className="mt-2 text-sm leading-5 text-zinc-400">
                       {stat.label}
                     </p>
                   </div>
@@ -213,7 +213,7 @@ function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-10 flex items-center gap-3 text-sm text-zinc-500 dark:text-zinc-400"
+          className="mt-10 flex items-center gap-3 text-sm text-zinc-400"
         >
           <Cloud size={16} className="text-sky-500" />
 
